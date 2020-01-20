@@ -15,7 +15,7 @@ The project was modified base on examples code of FreeRTOS demo for HiFive1 Rev 
 
 Refer to FreeRTOS/Demo/RISC-V_RV32_SiFive_HiFive1_FreedomStudio on https://sourceforge.net/p/freertos/code/HEAD/tree/trunk/ (r2752)
 
-## Build Instructions
+## Build Instructions (for Windows 10)
 **Step 1:** Clone this repository 
 ```
 $ git clone https://github.com/TaLucGiaHoang/hifive1-revb-freertos-uart.git
@@ -29,6 +29,22 @@ $ git clone https://github.com/TaLucGiaHoang/hifive1-revb-freertos-uart.git
 - Click **Finish**
 
 **Step 3:** Select `RTOSDemo` project and build
+- **NOTE:** on Windows if you got this error
+```
+14:40:42 **** Build of configuration Debug for project RTOSDemo ****
+make -j4 all 
+Cannot run program "make": Launching failed
+
+Error: Program "make" not found in PATH
+```
+
+Add these paths into **Environment Variables**
+- Open **Environment Variables...** > **User variables** > **Path**
+```
+<FreedomStudio_directory>\SiFive\riscv64-unknown-elf-gcc-<version>
+<FreedomStudio_directory>\SiFive\riscv64-unknown-elf-gcc-<version>\bin
+<FreedomStudio_directory>\SiFive\msys64-<version>\usr\bin
+```
 
 **Step 4:** Download binary file to board
 - Open `Debug Configurations`
@@ -60,7 +76,7 @@ Input your name:
 - Type some characters (Ex: `hifive rev B`) and press ENTER
 - This will print your input and name of current running tasks
 ```
-prvQueueSendTask is running: hello hoang
+prvQueueSendTask is running: hello hifive rev B
 prvQueueReceiveTask is running
 ...
 ```
